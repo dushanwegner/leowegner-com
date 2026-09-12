@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leo Wegner</title>
+<meta name="description" content="Leo Wegner">
+
+<!--
+  This is the whole page. One file, no build step, no framework.
+
+  WHY IT IS PLAIN: whoever edits this should be able to open it, change a
+  sentence, save, and push — without installing anything or knowing what a
+  bundler is. Everything below is standard HTML and CSS that any browser has
+  understood for a decade.
+
+  HOW TO CHANGE IT: edit this file, commit, push to `main`. GitHub Pages
+  rebuilds within about a minute. There is nothing else to run.
+-->
+
+<style>
+  /* System fonts only: nothing to download, so the page is readable before
+     any network round-trip finishes, and it looks native on every device. */
+  :root {
+    --ink:   #18181b;
+    --ink-2: #52525b;
+    --paper: #ffffff;
+    --line:  #e5e5e8;
+  }
+
+  /* The page follows the reader's own light/dark setting rather than
+     insisting on one. A splash page that burns at night is a small rudeness. */
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --ink:   #ececee;
+      --ink-2: #a8a8b0;
+      --paper: #161618;
+      --line:  #2a2a2f;
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    min-height: 100svh;
+    display: grid;
+    /* margin:auto rather than align-items:center — a centred flex box clips
+       the top of anything taller than the viewport, and then the first line
+       is simply unreachable. */
+    place-content: center;
+    padding: 2rem 1.5rem;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 17px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  main { max-width: 34rem; margin: auto; }
+
+  h1 {
+    font-size: clamp(2rem, 1.4rem + 2.4vw, 2.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+    font-weight: 650;
+  }
+
+  p { margin: 0 0 1.1rem; color: var(--ink-2); }
+  p.lead { color: var(--ink); font-size: 1.1rem; }
+
+  ul.links {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 1.25rem 0 0;
+    border-top: 1px solid var(--line);
+  }
+  ul.links li { margin: 0 0 0.6rem; }
+
+  a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+</style>
+</head>
+<body>
+
+<main>
+  <h1>Leo Wegner</h1>
+
+  <p class="lead">
+    <!-- EDIT ME: one or two sentences. Who you are, what you are doing now. -->
+    Diese Seite wird gerade neu gemacht.
+  </p>
+
+  <p>
+    <!-- EDIT ME, or delete this paragraph entirely. -->
+    Mehr folgt in Kürze.
+  </p>
+
+  <!-- EDIT ME: delete any line you do not want. Delete the whole <ul> if you
+       want no links at all — the border above it goes with it. -->
+  <ul class="links">
+    <li><a href="mailto:hallo@leowegner.com">hallo@leowegner.com</a></li>
+  </ul>
+</main>
+
+</body>
+</html>
