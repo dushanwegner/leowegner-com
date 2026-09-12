@@ -1,41 +1,45 @@
 <!doctype html>
-<html lang="de">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Leo Wegner</title>
 <meta name="description" content="Leo Wegner">
+<link rel="canonical" href="https://leowegner.com/">
+
+<meta property="og:title" content="Leo Wegner">
+<meta property="og:type" content="profile">
+<meta property="og:url" content="https://leowegner.com/">
 
 <!--
-  This is the whole page. One file, no build step, no framework.
+  One file. No build step, no framework, no fonts to download — the serif is
+  whichever good one the reader's machine already has, so the page is set
+  correctly before any network request finishes.
 
-  WHY IT IS PLAIN: whoever edits this should be able to open it, change a
-  sentence, save, and push — without installing anything or knowing what a
-  bundler is. Everything below is standard HTML and CSS that any browser has
-  understood for a decade.
-
-  HOW TO CHANGE IT: edit this file, commit, push to `main`. GitHub Pages
-  rebuilds within about a minute. There is nothing else to run.
+  TO CHANGE IT: edit this file, commit, push to `main`. It redeploys in about
+  a minute. There is nothing else to run.
 -->
 
 <style>
-  /* System fonts only: nothing to download, so the page is readable before
-     any network round-trip finishes, and it looks native on every device. */
   :root {
-    --ink:   #18181b;
-    --ink-2: #52525b;
-    --paper: #ffffff;
-    --line:  #e5e5e8;
+    --paper:  #f6f1e7;   /* cream */
+    --paper-2:#efe8d9;
+    --ink:    #241f18;
+    --ink-2:  #6b6154;
+    --rule:   #ded4c0;
+    --key:    #7a2e22;   /* a warm oxblood, for the one link that matters */
   }
 
-  /* The page follows the reader's own light/dark setting rather than
-     insisting on one. A splash page that burns at night is a small rudeness. */
+  /* The reader's own setting wins. A cream page that stays bright at 2am is a
+     small rudeness, so the dark variant keeps the warmth and drops the glare. */
   @media (prefers-color-scheme: dark) {
     :root {
-      --ink:   #ececee;
-      --ink-2: #a8a8b0;
-      --paper: #161618;
-      --line:  #2a2a2f;
+      --paper:  #16130f;
+      --paper-2:#1d1913;
+      --ink:    #ece5d8;
+      --ink-2:  #a2978a;
+      --rule:   #332c22;
+      --key:    #d98a76;
     }
   }
 
@@ -45,42 +49,69 @@
     margin: 0;
     min-height: 100svh;
     display: grid;
-    /* margin:auto rather than align-items:center — a centred flex box clips
-       the top of anything taller than the viewport, and then the first line
-       is simply unreachable. */
+    /* place-content, not align-items:center — a centred flex box clips the top
+       of anything taller than the viewport and the first line becomes
+       unreachable. */
     place-content: center;
-    padding: 2rem 1.5rem;
+    padding: 3rem 1.5rem;
     background: var(--paper);
     color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 17px;
-    line-height: 1.55;
+    font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia,
+                 "Times New Roman", serif;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
-  main { max-width: 34rem; margin: auto; }
+  main {
+    max-width: 30rem;
+    margin: auto;
+    text-align: center;
+  }
 
   h1 {
-    font-size: clamp(2rem, 1.4rem + 2.4vw, 2.75rem);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.75rem;
-    font-weight: 650;
+    margin: 0;
+    font-size: clamp(2.6rem, 1.8rem + 3.4vw, 4rem);
+    font-weight: 400;
+    line-height: 1.05;
+    /* Wide tracking on a large serif reads as a nameplate rather than a
+       headline, which is what a single name on an empty page wants to be. */
+    letter-spacing: 0.02em;
   }
 
-  p { margin: 0 0 1.1rem; color: var(--ink-2); }
-  p.lead { color: var(--ink); font-size: 1.1rem; }
-
-  ul.links {
-    list-style: none;
-    margin: 1.75rem 0 0;
-    padding: 1.25rem 0 0;
-    border-top: 1px solid var(--line);
+  .rule {
+    width: 3.5rem;
+    height: 1px;
+    margin: 2rem auto;
+    background: var(--rule);
+    border: 0;
   }
-  ul.links li { margin: 0 0 0.6rem; }
 
-  a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-  a:hover { text-decoration-thickness: 2px; }
+  .where {
+    margin: 0 0 2rem;
+    font-size: 1.02rem;
+    font-style: italic;
+    color: var(--ink-2);
+  }
+
+  /* The one thing to click. A pill, because rounding belongs to things you
+     press and to nothing else on the page. */
+  .link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.7rem 1.4rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--paper-2);
+    color: var(--key);
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+  .link:hover,
+  .link:focus-visible { border-color: var(--key); background: var(--paper); }
+  .link svg { width: 1.05em; height: 1.05em; flex: none; }
 </style>
 </head>
 <body>
@@ -88,21 +119,21 @@
 <main>
   <h1>Leo Wegner</h1>
 
-  <p class="lead">
-    <!-- EDIT ME: one or two sentences. Who you are, what you are doing now. -->
-    Diese Seite wird gerade neu gemacht.
-  </p>
+  <hr class="rule">
 
-  <p>
-    <!-- EDIT ME, or delete this paragraph entirely. -->
-    Mehr folgt in Kürze.
-  </p>
+  <p class="where">Everything is over here.</p>
 
-  <!-- EDIT ME: delete any line you do not want. Delete the whole <ul> if you
-       want no links at all — the border above it goes with it. -->
-  <ul class="links">
-    <li><a href="mailto:hallo@leowegner.com">hallo@leowegner.com</a></li>
-  </ul>
+  <a class="link" href="https://www.instagram.com/suitedrunner"
+     rel="me noopener" target="_blank">
+    <!-- Instagram's glyph, drawn rather than loaded, so the page stays one file. -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
+         stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+      <circle cx="12" cy="12" r="4"></circle>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+    </svg>
+    @suitedrunner
+  </a>
 </main>
 
 </body>

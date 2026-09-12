@@ -8,8 +8,13 @@ The site at **leowegner.com**. One HTML file, published by GitHub Pages.
 2. Commit and push to `main`.
 3. Wait about a minute. That is the whole deployment.
 
-There is no build step, no framework and nothing to install. The parts meant
-to be edited are marked `EDIT ME` in the file.
+There is no build step, no framework and nothing to install — not even a web
+font: the serif is whichever good one the reader's machine already has, so the
+page is set correctly before any network request finishes.
+
+Right now it is a nameplate and one link, to `@suitedrunner` on Instagram. No
+"coming soon": a page that announces itself as unfinished is worse than a page
+that simply says the one true thing it has to say.
 
 ## Why it is built this way
 
